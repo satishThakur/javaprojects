@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>satish</groupId>
+  <artifactId>xtream-test</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Archetype - xtream-test</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+  	<dependency>
+		<groupId>com.thoughtworks.xstream</groupId>
+		<artifactId>xstream</artifactId>
+		<version>1.4.3</version>
+	</dependency>
+  	<dependency>
+		<groupId>xpp3</groupId>
+		<artifactId>xpp3</artifactId>
+		<version>1.1.4c</version>
+</dependency>
+
+<dependency>
+	<groupId>org.codehaus.jettison</groupId>
+	<artifactId>jettison</artifactId>
+	<version>1.3.2</version>
+</dependency>
+
+  </dependencies>
+            
+</project>
