@@ -5,6 +5,7 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.LockOptions;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
@@ -26,7 +27,12 @@ implements HibernateDao<T, ID> {
 	
 	@SuppressWarnings("unchecked")
 	public T findById(ID id, boolean lock) {
-		return (T) getSession().load(getPersistentClass(), id);
+		if(lock){
+			return (T) getSession().load(getPersistentClass(), id, LockOptions.UPGRADE);
+		}else {
+			return (T) getSession().load(getPersistentClass(), id);
+		}				
+		
 	}
 	
 	public T makePersistent(T entity) {
@@ -72,7 +78,7 @@ implements HibernateDao<T, ID> {
 	
 	
 	public Session getSession() {
-		return m_sessionFactory.openSession();
+		return m_sessionFactory.getCurrentSession();
 	}
 
 }
