@@ -9,7 +9,7 @@ import com.satish.hibernate.dao.GenericHibernateDao;
 public class UserDaoImpl extends GenericHibernateDao<User, Long> implements
 		UserDao {
 	
-private static UserDao m_itemDao = (UserDao) new UserDaoImpl(SessionFactoryHelper.getSessionFactory());
+	private static UserDao m_itemDao = new UserDaoImpl(SessionFactoryHelper.getSessionFactory());
 	
 	public static UserDao getItemDao() {
 		return m_itemDao;

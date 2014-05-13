@@ -18,9 +18,15 @@ public class Test {
 		
 		Image image = new Image();
 		
-		image.setName("Image1");
+		image.setName("Image");
 		image.setType("JPEG");
 		image.setSize("5MB");
+		
+		Image image1 = new Image();	
+		
+		image1.setName("Image1");
+		image1.setType("JPEG");
+		image1.setSize("10MB");
 		
 		
 		User user = new User();
@@ -28,6 +34,7 @@ public class Test {
 		user.setName("user1");
 		
 		user.addImage(image);
+		user.addImage(image1);
 		session.save(user);
 		t.commit();
 		session.close();
