@@ -2,6 +2,7 @@ package streams;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
@@ -17,6 +18,8 @@ public class FlatmapEx {
 
         return chars.stream();
     }
+
+
 
 
     public void getAllCharsInWords(List<String> words){

@@ -34,5 +34,11 @@ public class OptionalEx {
         Optional<Integer> age = op.getPersonByName("Sam").map(p -> p.age);
         age.ifPresent(a -> System.out.println("Sam age is " + a));
 
+        //setting default
+        Optional<Integer> optionalAge = op.getPersonByName("Mohan").map(p -> p.age);
+        int mohanAge = optionalAge.orElse(4);
+
+        //or we can supply supplier. we use this kind of things already in cache the basic is same.
+
     }
 }

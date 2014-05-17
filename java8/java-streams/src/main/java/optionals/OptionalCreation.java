@@ -1,7 +1,5 @@
 package optionals;
 
-import com.sun.istack.internal.NotNull;
-
 import java.util.Optional;
 import java.util.OptionalInt;
 
@@ -11,7 +9,7 @@ import java.util.OptionalInt;
 
 class City{
 
-    private String name;
+    private final String name;
 
     private int year;
 
