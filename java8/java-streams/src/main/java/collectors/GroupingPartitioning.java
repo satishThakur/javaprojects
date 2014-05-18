@@ -14,6 +14,7 @@ public class GroupingPartitioning {
     public static void main(String[] args) {
         Stream<Locale> locales = Stream.of(Locale.getAvailableLocales());
 
+        //with classifier function T -> K
         Map<String, List<Locale>> countryLocales = locales.collect(Collectors.groupingBy(Locale::getCountry));
 
         System.out.println(countryLocales.get("CH"));
@@ -23,5 +24,10 @@ public class GroupingPartitioning {
         Map<String, Long> countryCount = locales.collect(Collectors.groupingBy(Locale::getCountry, Collectors.counting()));
 
         System.out.println(countryCount);
+
+        locales = Stream.of(Locale.getAvailableLocales());
+
+        Map<Boolean, List<Locale>> engOrOtherLocal = locales.collect(Collectors.partitioningBy(l -> "en".equals(l.getLanguage())));
+        System.out.println("English locales: " + engOrOtherLocal.get(true));
     }
 }

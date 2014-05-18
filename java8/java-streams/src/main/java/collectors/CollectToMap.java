@@ -1,6 +1,10 @@
 package collectors;
 
+import domain.Person;
+import domain.PersonsDb;
+
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -33,5 +37,16 @@ public class CollectToMap {
         System.out.println(countryLangs.get(""));
         System.out.println(countryLangs.get("India"));
         System.out.println(countryLangs.get("Belgium"));
+
+
+        //Simple example we have person and we want to map person object by name
+        List<Person> persons = new PersonsDb().persons;
+
+        Map<String, Person> nameToPerson = persons.stream().collect(Collectors.toMap(p -> p.name, Function.identity()));
+        System.out.println(nameToPerson);
+
+        //there is a simple way..
+        Map<String, List<Person>> nameToPerson1 = persons.stream().collect(Collectors.groupingBy(p -> p.name));
+        System.out.println(nameToPerson1);
     }
 }

@@ -14,6 +14,10 @@ public class CollectorsExample {
     public static void main(String[] args) {
         List<String> words = Arrays.asList("hello", "there", "hello", "bye");
 
+        Set<String> uniqueWords1 = words.stream().collect(() -> new HashSet<>(),
+                (set,elem) -> set.add(elem),(s1, s2) -> s1.addAll(s2) );
+        System.out.println(uniqueWords1);
+
         Set<String> uniqueWords = words.stream().collect(HashSet::new, HashSet::add, HashSet::addAll);
 
         System.out.println(uniqueWords);
