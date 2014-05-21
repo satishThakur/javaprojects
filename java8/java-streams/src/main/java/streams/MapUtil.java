@@ -21,8 +21,8 @@ class Fruit{
         this.name = name;
     }
 
-    public String getDesc(){
-        return "Fruit name is " + name;
+    public static String getDesc(Fruit f){
+        return "Fruit name is " + f.name;
     }
 
     @Override
@@ -72,7 +72,7 @@ class Pair<T>{
 public class MapUtil {
 
     public static String getDesc(Fruit f){
-        return f.getDesc();
+        return Fruit.getDesc(f);
     }
 
     public static <T,U> Future<U> map(Future<T> future, Function<T,U> mapper){
@@ -105,7 +105,7 @@ public class MapUtil {
         };
     }
 
-    public static <T,U> List<U> map(List<T> list, Function<T,U> mapper){
+    public static <T,U> List<U> map(List<? extends T> list, Function<? super T,U> mapper){
         List<U> mappedList = new ArrayList<>();
         list.forEach(elem -> mappedList.add(mapper.apply(elem)));
         return mappedList;
@@ -123,6 +123,13 @@ public class MapUtil {
 
         map(apples, Apple::toString).forEach(System.out::println);
 
-        map(apples, MapUtil::getDesc).forEach(System.out::println);
+        map(apples, Fruit::getDesc).forEach(System.out::println);
+
+        Function<Fruit,String> mapper = Fruit::getDesc;
+
+        map(apples, mapper);
+
+        Function<Apple, String> appleMapper = Fruit::getDesc;
+
     }
 }
