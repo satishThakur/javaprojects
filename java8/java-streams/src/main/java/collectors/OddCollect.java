@@ -21,6 +21,8 @@ class City{
         return "City: " + name;
     }
 }
+
+
 public class OddCollect {
     public static void main(String[] args) {
 

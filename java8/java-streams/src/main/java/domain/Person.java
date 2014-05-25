@@ -3,9 +3,7 @@ package domain;
 /**
  * Created by satish on 06/05/14.
  */
-enum Sex{
-    MALE, FEMALE
-}
+
 
 public class Person {
     public final String name;

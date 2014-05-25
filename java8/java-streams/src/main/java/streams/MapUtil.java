@@ -111,6 +111,12 @@ public class MapUtil {
         return mappedList;
     }
 
+    public static <T,U> List<U> flatMap(List<? extends T> list, Function<? super T,List<U>> mapper){
+        List<U> mappedList = new ArrayList<>();
+        list.forEach(elem -> mappedList.addAll(mapper.apply(elem)));
+        return mappedList;
+    }
+
     public static <T,U> Pair<U> map(Pair<T> pair, Function<T,U>  mapper){
         return new Pair<>(mapper.apply(pair.getFirst()), mapper.apply(pair.getSecond()));
     }

@@ -2,6 +2,7 @@ package collectors;
 
 import domain.Person;
 import domain.PersonsDb;
+import domain.Sex;
 
 import java.util.*;
 import java.util.function.Function;
@@ -48,5 +49,12 @@ public class CollectToMap {
         //there is a simple way..
         Map<String, List<Person>> nameToPerson1 = persons.stream().collect(Collectors.groupingBy(p -> p.name));
         System.out.println(nameToPerson1);
+
+        //or
+        Map<String, Person> nameToPerson2 = persons.stream().collect(Collectors.groupingBy(p -> p.name,
+                Collectors.reducing(new Person("XYZ", 99, Sex.MALE), (p1, p2) -> p2)));
+
+        System.out.println(nameToPerson2);
+
     }
 }

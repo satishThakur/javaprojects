@@ -39,9 +39,8 @@ public class StreamZipper {
             }
         };
 
-        int characteristics = Spliterator.ORDERED | Spliterator.IMMUTABLE;
-
-        return StreamSupport.stream(Spliterators.spliteratorUnknownSize(zipIterator,characteristics),false);
+        Iterable<T> iterable = () -> zipIterator;
+        return StreamSupport.stream(iterable.spliterator(), false);
     }
 
     public static void main(String[] args) {

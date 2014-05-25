@@ -45,6 +45,14 @@ public class CollectorsExample {
 
         System.out.println(ages.getSum());
 
+        //CollectorsAndThen
+
+        List<String> immutableNames = persons.stream().map(p -> p.name).
+                collect(Collectors.collectingAndThen(
+                        Collectors.toList(), Collections::unmodifiableList));
+
+        //immutableNames.add("new guy");
+
 
     }
 }

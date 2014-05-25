@@ -10,13 +10,16 @@ import java.util.List;
 public class PersonsDb {
 
     public final List<Person> persons = new ArrayList<Person>(Arrays.asList(
-            new Person("Billy", 10, Sex.MALE),
+            new Person("Bill", 10, Sex.MALE),
             new Person("Sam", 20, Sex.MALE),
             new Person("Sonia", 34, Sex.FEMALE),
             new Person("Peter", 30, Sex.MALE),
             new Person("Raj", 87, Sex.MALE),
             new Person("Rose", 17, Sex.FEMALE),
             new Person("satish", 31, Sex.MALE),
-            new Person("Ram", 65, Sex.MALE)));
+            new Person("Ram", 65, Sex.MALE),
+            new Person("Harry", 20, Sex.MALE),
+            new Person("Nina", 30, Sex.FEMALE),
+            new Person("Ravi", 65, Sex.MALE)));
 
 }

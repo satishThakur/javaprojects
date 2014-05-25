@@ -9,7 +9,7 @@ import java.util.List;
 public class ClosureExample {
 
     public static void main(String[] args) {
-        String[] names = { "Peter", "Paul", "Mary" };
+        String[] names = { "Pete", "Paul", "Mary" };
         List< Runnable > runners = new ArrayList<>();
         for (String name : names)
             runners.add(() -> System.out.println(name));
